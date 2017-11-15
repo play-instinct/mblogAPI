@@ -10,9 +10,12 @@ const postSchema = mongoose.Schema({
   },
 });
 
-blogPostSchema.virtual('author').get(function() {
+
+
+postSchema.virtual('authorfull').get(function() {
   return `${this.author.firstName} ${this.author.lastName}`.trim();
 });
+
 
 
 postSchema.methods.apiRepr = function() {
@@ -21,9 +24,11 @@ postSchema.methods.apiRepr = function() {
     title: this.title,
     content: this.content,
     created_at: this.created_at,
-    author: this.author,
+    author: this.authorfull,
   };
 }
+
+
 
 
 
