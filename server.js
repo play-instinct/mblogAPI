@@ -67,7 +67,7 @@ app.post('/posts', (req, res) => {
       created_at: Date.now,
 	})
     .then(
-      post => res.status(201).json(restaurant.apiRepr()))
+      post => res.status(201).json(post.apiRepr()))
     .catch(err => {
       console.error(err);
       res.status(500).json({message: 'Internal server error'});
